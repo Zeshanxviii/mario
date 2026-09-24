@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Super Mario 3D - Three.js Platformer</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="ui">
+    <div id="topbar">
+      <div class="stat"><span>COINS</span><b id="coins">0 / 12</b></div>
+      <div class="stat"><span>SCORE</span><b id="score">0</b></div>
+      <div class="stat"><span>TIME</span><b id="time">120</b></div>
+      <div class="stat"><span>LIVES</span><b id="lives">♥♥♥</b></div>
+    </div>
+    <div id="help">
+      <b>WASD</b> Move &nbsp; <b>SPACE</b> Jump &nbsp; <b>SHIFT</b> Run &nbsp; <b>R</b> Restart &nbsp; <b>C</b> Camera &nbsp; <b>Q/E</b> Orbit
+    </div>
+    <div id="message" class="hidden"></div>
+  </div>
+  <!-- Mobile controls -->
+  <div id="mobileControls" class="hidden">
+    <div id="joyBase"><div id="joyStick"></div></div>
+    <div id="rightControls">
+      <button id="btnRun" aria-label="Run">RUN</button>
+      <button id="btnJump" aria-label="Jump">JUMP</button>
+    </div>
+    <div id="camPad" aria-label="Swipe to rotate camera">◀ CAM ▶</div>
+    <button id="btnPause" aria-label="Pause">⏸</button>
+  </div>
+  <div id="loading">
+    <div class="mario-loader">★ LOADING MARIO WORLD ★</div>
+    <div class="bar"><div id="progress"></div></div>
+    <p id="loadText">Loading 3D model...</p>
+  </div>
+  <canvas id="canvas"></canvas>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
