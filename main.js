@@ -289,13 +289,25 @@ if (btnJump) {
   btnJump.addEventListener('touchstart', doJump, { passive: false });
 }
 if (btnRun) {
-  btnRun.addEventListener('pointerdown', e => { touchRun = true; e.preventDefault(); });
-  btnRun.addEventListener('pointerup', () => touchRun = false);
-  btnRun.addEventListener('pointercancel', () => touchRun = false);
-  btnRun.addEventListener('pointerleave', () => touchRun = false);
-  // also support hold
-  btnRun.addEventListener('touchstart', e => { touchRun = true; e.preventDefault(); }, { passive: false });
-  btnRun.addEventListener('touchend', () => touchRun = false);
+  const setRun = v => {
+    touchRun = v;
+    btnRun.classList.toggle('active', v);
+    btnRun.style.filter = v ? 'brightness(1.15) saturate(1.2)' : '';
+    btnRun.style.transform = v ? 'scale(0.96)' : '';
+  };
+  btnRun.addEventListener('pointerdown', e => {
+    setRun(true);
+    try { btnRun.setPointerCapture(e.pointerId); } catch {}
+    e.preventDefault();
+  });
+  btnRun.addEventListener('pointerup', e => {
+    setRun(false);
+    try { btnRun.releasePointerCapture(e.pointerId); } catch {}
+  });
+  btnRun.addEventListener('pointercancel', () => setRun(false));
+  btnRun.addEventListener('touchstart', e => { setRun(true); e.preventDefault(); }, { passive: false });
+  btnRun.addEventListener('touchend', () => setRun(false));
+  btnRun.addEventListener('touchcancel', () => setRun(false));
 }
 if (btnPause) {
   btnPause.addEventListener('click', () => {
