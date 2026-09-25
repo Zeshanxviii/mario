@@ -28,7 +28,7 @@ canvas{display:block;width:100%;height:100%;touch-action:none}
 #btnJump,#btnRun{width:86px;height:86px;border-radius:50%;border:3px solid #000;font-weight:900;font-size:15px;box-shadow:3px 4px 0 rgba(0,0,0,.4);touch-action:none}
 #btnJump{background:#e52521;color:#fff}#btnRun{background:#fbd000;color:#000}
 #btnJump:active,#btnRun:active{transform:translate(1px,1px);box-shadow:2px 2px 0 rgba(0,0,0,.4)}
-#camPad{position:absolute;right:18px;top:50%;transform:translateY(-50%);width:56px;height:160px;background:rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.6);border-radius:28px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.85);font-size:10px;letter-spacing:1px;writing-mode:vertical-rl;pointer-events:auto;touch-action:none}
+#camPad{position:absolute;right:18px;bottom:210px;width:56px;height:132px;background:rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.6);border-radius:28px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.85);font-size:10px;letter-spacing:1px;writing-mode:vertical-rl;pointer-events:auto;touch-action:none}
 #btnPause{position:absolute;right:14px;top:58px;width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;border:2px solid #fff;font-size:16px;pointer-events:auto}
 
 @media (max-width:768px){
@@ -38,13 +38,15 @@ canvas{display:block;width:100%;height:100%;touch-action:none}
   #message{min-width:88vw;padding:18px 16px}#message h1{font-size:26px}
   .bar{width:220px}
   #joyBase{width:118px;height:118px;left:12px;bottom:12px}
-  #rightControls{right:12px;bottom:12px}#btnJump,#btnRun{width:78px;height:78px;font-size:14px}
-  #camPad{width:48px;height:140px;right:12px}
+  #rightControls{right:12px;bottom:12px;gap:10px}#btnJump,#btnRun{width:78px;height:78px;font-size:14px}
+  #camPad{width:46px;height:118px;right:12px;bottom:192px}
 }
 @media (max-height:500px) and (orientation:landscape){
   #topbar{padding:6px 10px;border-bottom-width:2px}
-  #joyBase{width:100px;height:100px}
-  #btnJump,#btnRun{width:68px;height:68px}
+  #joyBase{width:100px;height:100px;bottom:10px}
+  #rightControls{bottom:10px;gap:8px}
+  #btnJump,#btnRun{width:62px;height:62px;font-size:12px}
+  #camPad{height:96px;bottom:148px;width:42px}
 }
 
 @keyframes pop{from{transform:scale(1)}to{transform:scale(1.06)}}
